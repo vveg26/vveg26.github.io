@@ -1,6 +1,6 @@
 # Site settings
 title: Julian's Blog
-SEOTitle: JC's blog | veg
+SEOTitle: Julian's blog
 header-img: img/post-bg-desk.jpg
 email: azurychu27@gmail.com
 description: "我是天空里的一片云"
@@ -11,7 +11,7 @@ github_repo: "https://github.com/azurychu/azurychu.github.io.git" # you code rep
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "苟利国家生死以，岂因祸福避趋之~"
+sidebar-about-description: "one loves the sunset when one is so sad."
 sidebar-avatar: /img/avatar_binggan.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
@@ -62,7 +62,7 @@ gitalk:
   enable: true    #是否开启Gitalk评论
   clientID:                             #生成的clientID
   clientSecret:     #生成的clientSecret
-  repo: name.github.io    #仓库名称
+  repo: azurychu.github.io    #仓库名称
   owner:     #github用户名
   admin: 
   distractionFreeMode: true #是否启用类似FB的阴影遮罩

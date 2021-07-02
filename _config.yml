@@ -20,10 +20,10 @@ sidebar-avatar: /img/avatar_binggan.jpg      # use absolute URL, seeing it's use
 RSS: false
 # weibo_username:     暂无
 #zhihu_username:     jcjc
-github_username:    暂无
+github_username:    azurychu
 #facebook_username:  暂无
 #jianshu_username:   暂无
-twitter_username:   暂无
+twitter_username:   azurychu27
 
 
 
@@ -97,6 +97,6 @@ service-worker: true
 friends: [
     {
         title: "Twitter",
-        href: "https://wangpei.ink"
+        href: "https://twitter.com/azurychu27"
     }
 ]

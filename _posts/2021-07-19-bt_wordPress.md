@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      VPS上宝塔面板搭建wordpress并与xui面板共存
-subtitle:   wordpress+某面板+vps+反代+cdn
+title:      宝塔面板搭建wordpress
+subtitle:   宝塔面板+wordpress+某面板+vps+反代+cdn
 date:       2021-7-19
 author:     veg
 header-img: img/jc_bgphoto.jpg
@@ -12,10 +12,6 @@ tags:
     - V2ray
     - v2-ui
 ---
-<!-- wp:paragraph -->
-<p>关键词：v2-ui(vmess+websocket+tls)，bbr4加速，宝塔面板，wordpress</p>
-<!-- /wp:paragraph -->
-
 <!-- wp:paragraph -->
 <p>1购买没有被墙的服务器，用cmd ping一下是否被墙（之后用ssh工具链接）</p>
 <!-- /wp:paragraph -->
@@ -197,10 +193,28 @@ wget -N --no-check-certificate "&lt;https://raw.githubusercontent.com/chiakge/Li
 <!-- wp:paragraph -->
 <p>在配置文件中添加代码</p>
 <!-- /wp:paragraph -->
+```fsharp
+location ^~ /bobo {
+    proxy_pass http://127.0.0.1:45454/bobo;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+}
+location /Date2021 {
+        proxy_redirect off;
+        proxy_pass http://127.0.0.1:54321;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+        proxy_set_header Host $http_host;
+        proxy_read_timeout 300s;
+        # Show realip in v2ray access.log
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+  }
+```
 
-<!-- wp:image -->
-<figure class="wp-block-image"><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/428de54a-04e1-498d-a935-94d7fa158c47/Untitled.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/428de54a-04e1-498d-a935-94d7fa158c47/Untitled.png"/></figure>
-<!-- /wp:image -->
+![https://i.imgur.com/UkS7o8k.png](https://i.imgur.com/UkS7o8k.png)
 
 <!-- wp:paragraph -->
 <p>在软件商店里重载并重启nigx服务</p>

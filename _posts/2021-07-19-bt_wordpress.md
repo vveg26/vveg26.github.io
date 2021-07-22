@@ -79,4 +79,11 @@ wget -N --no-check-certificate "[https://raw.githubusercontent.com/chiakge/Linux
 ![https://i.imgur.com/b3WoX4g.png](https://i.imgur.com/b3WoX4g.png)
 
 10.安装完成，访问自己网站吧
+
+## PS：
+想要富强魔法的话，可以参考这篇文章
+这篇文章提供了宝塔面板和xray面板共存的方法
+https://www.v2rayssr.com/xray_v2ui_bt.html
+
+
 11.freenom自动续期（看下一篇）

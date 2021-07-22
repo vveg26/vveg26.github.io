@@ -193,6 +193,8 @@ wget -N --no-check-certificate "&lt;https://raw.githubusercontent.com/chiakge/Li
 <!-- wp:paragraph -->
 <p>在配置文件中添加代码</p>
 <!-- /wp:paragraph -->
+<!-- /wp:paragraph -->
+
 ```fsharp
 location ^~ /bobo {
     proxy_pass http://127.0.0.1:45454/bobo;
@@ -213,6 +215,7 @@ location /Date2021 {
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
   }
 ```
+<!-- /wp:paragraph -->
 
 ![https://i.imgur.com/UkS7o8k.png](https://i.imgur.com/UkS7o8k.png)
 

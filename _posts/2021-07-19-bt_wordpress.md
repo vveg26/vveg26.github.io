@@ -9,7 +9,6 @@ catalog: true
 tags:
     - 宝塔面板
     - wordpress
-    - bbr加速
     - freenom
     - cloudflare
 ---

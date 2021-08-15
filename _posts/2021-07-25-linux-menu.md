@@ -7,9 +7,7 @@ author:     veg
 header-img: img/home-bg.jpg
 catalog: true
 tags:
-    - Linux目录
-    - linux
-    - linux基础命令大全
+    - 服务器
 ---
 # linux目录
 

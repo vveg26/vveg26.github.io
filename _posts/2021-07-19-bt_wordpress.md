@@ -7,10 +7,7 @@ author:     veg
 header-img: img/jc_bgphoto.jpg
 catalog: true
 tags:
-    - 宝塔面板
-    - wordpress
-    - freenom
-    - cloudflare
+    - 服务器
 ---
 1购买没有被墙的服务器，用cmd ping一下是否被墙（之后用ssh工具链接）
 

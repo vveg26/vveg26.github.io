@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      通过宝塔面板一键部署wordpress
-subtitle:   通过freenom白嫖来的域名绑定自己的wordpress
+subtitle:   博客网站的搭建全过程
 date:       2021-7-19
 author:     veg
 header-img: img/jc_bgphoto.jpg
@@ -9,7 +9,7 @@ catalog: true
 tags:
     - 服务器
 ---
-关键词：v2-ui(vmess+websocket+tls)，bbr4加速，宝塔面板，wordpress
+关键词：x-ui，宝塔面板，wordpress
 
 ## 服务器购买
 

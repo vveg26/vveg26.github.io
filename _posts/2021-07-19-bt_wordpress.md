@@ -21,22 +21,22 @@ tags:
 
 1. 这里使用的是freenom免费提供一年的域名 ⇒ [freenom网址](https://www.freenom.com/) 
 2. 在freenom申请顶级域名（域名有效期12个月，到期15天内可续费，自动续费请查看）
-    - 申请完的域名如下
+    申请完的域名如下
 
     ![https://i.imgur.com/mS2W9Mu.png](https://i.imgur.com/mS2W9Mu.png)
 
 3. 在cloudflare上实现域名解析（将服务器ip绑定到二级域名上）⇒[cloudflare](https://www.cloudflare.com/)
-    - 添加站点为刚刚申请的顶级域名
+    添加站点为刚刚申请的顶级域名
 
     ![https://i.imgur.com/4wWVnRy.png](https://i.imgur.com/4wWVnRy.png)
 
-    - 添加cloudflare名称服务器到freenom里的域名里
+    添加cloudflare名称服务器到freenom里的域名里
 
     ![https://i.imgur.com/emPAg8T.png](https://i.imgur.com/emPAg8T.png)
 
     ![https://i.imgur.com/Koa7erX.png](https://i.imgur.com/Koa7erX.png)
 
-- cloudflare里添加二级域名DNS解析
+    cloudflare里添加二级域名DNS解析
 
 [https://imgur.com/qmS6CSX](https://i.imgur.com/qmS6CSX.png)
 
@@ -79,11 +79,11 @@ tags:
 
 3. 在宝塔面板安全给x-ui面板 放行54321端口
 4. 登录x-ui面板，更改相关的配置
-    - 修改登录用户名和密码以及面板数据（修改完的路径为ip:/45454/azurychu)重启v2ui
+    修改登录用户名和密码以及面板数据（修改完的路径为ip:/45454/azurychu)重启v2ui
 
     ![https://i.imgur.com/aUB5nB6.png](https://i.imgur.com/aUB5nB6.png)
 
-    - 创建节点
+    创建节点
 
         配置为vless+ws，tls不打开（vmess同，sniffing关闭可访问洋葱）
 

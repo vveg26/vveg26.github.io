@@ -38,7 +38,7 @@ tags:
 
 - cloudflare里添加二级域名DNS解析
 
-[https://imgur.com/qmS6CSX](https://imgur.com/qmS6CSX)
+[https://imgur.com/qmS6CSX](https://i.imgur.com/qmS6CSX.png)
 
 （上面内容详细自行搜索相关资料）
 

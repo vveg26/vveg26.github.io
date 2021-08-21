@@ -74,8 +74,8 @@ gitalk:
 # Baidu Analytics
 ba_track_id: 
 # Google Analytics
-ga_track_id:             # Format: UA-xxxxxx-xx
-ga_domain:                # 默认的是 auto, 这里我是自定义了的域名，你如果没有自己的域名，需要改成auto
+ga_track_id: G-NLM6M1PZLJ            # Format: UA-xxxxxx-xx
+ga_domain: veg27.me                # 默认的是 auto, 这里我是自定义了的域名，你如果没有自己的域名，需要改成auto
 
 
 

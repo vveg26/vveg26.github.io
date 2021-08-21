@@ -9,7 +9,6 @@ catalog: true
 tags:
     - 服务器
     - 宝塔面板
-    - 富强
 ---
 关键词：x-ui，宝塔面板，wordpress
 

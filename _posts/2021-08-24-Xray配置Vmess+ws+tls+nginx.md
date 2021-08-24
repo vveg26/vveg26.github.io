@@ -184,7 +184,6 @@ server {
     proxy_redirect off;
     proxy_pass http://127.0.0.1:1112;  # 假设WebSocket监听在环回地址的1112端口上;须与V2ray配置端口一致
     proxy_http_version 1.1;
-    proxy_http_version 1.1;
     proxy_set_header Upgrade $http_upgrade;
     proxy_set_header Connection "upgrade";
     proxy_set_header Host $host;

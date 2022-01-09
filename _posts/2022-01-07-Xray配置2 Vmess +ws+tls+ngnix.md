@@ -1,16 +1,16 @@
 ---
 layout:     post
-title:      Xray配置2
-subtitle:   vmess+ws+tls+nginx
-date:       2021-8-22
+title:      Xray配置2 Vless
+subtitle:   vless+ws+tls+ngnix
+date:       2022-1-7
 author:     veg
 header-img: img/home-bg.jpg
 catalog: true
 tags:
-    - Xray
-    - SSL证书
+    - Proxy
 ---
-# Xray配置Vmess+ws+tls+nginx
+
+# Xray配置2 Vmess
 
 “因为vmess xray和v2ray都支持，所以配置方面都一样，直接拿v2ray的来用”
 
@@ -23,7 +23,7 @@ tags:
 
 这些内容可以去看
 
-[https://www.notion.so/azurychu/x-ui-wordpress-3656db5c88fa44acbf026175a4814fcd](https://www.notion.so/x-ui-wordpress-3656db5c88fa44acbf026175a4814fcd)
+[https://www.notion.so/azurychu/x-ui-wordpress-3656db5c88fa44acbf026175a4814fcd](https://www.notion.so/3656db5c88fa44acbf026175a4814fcd)
 
 ## ssl证书申请
 
@@ -53,7 +53,7 @@ source ~/.bashrc
 .acme.sh/acme.sh --issue -d 你的域名 --standalone -k ec-256
 ```
 
-![https://cdn.jsdelivr.net/gh/azurychu/pic_blog/clash/20210822191639.png](https://cdn.jsdelivr.net/gh/azurychu/pic_blog/clash/20210822191639.png)
+![](https://raw.githubusercontent.com/vveg26/blog_photos/master/proxy/xray_config/xray1/xray1_1.png)
 
 若能看到这些，则代表成功，签发成功！继续下一步
 
@@ -95,7 +95,7 @@ bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release
       "settings": {
         "clients": [
           {
-            "id": "UUID",
+            "id": "98793a0c-f94d-4f75-8cc1-93c73dc0e86e",
             "alterId": 64
           }
         ]
@@ -120,7 +120,7 @@ bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release
 ## Nginx配置
 
 1. 安装nginx
-
+   
     ubuntu或Debian系统
 
 ```jsx
@@ -128,7 +128,7 @@ apt install curl tar nginx -y
 ```
 
 1. 启动nginx
-
+   
     PS：在执行下面命令之前，最好重启一下VPS，以免上述的更新命令没有完成导致 Nginx 无法启动，有的搬瓦工机器需要人工重启——因为我遇见过一次）
 
 ```jsx
@@ -137,11 +137,11 @@ systemctl start nginx
 
 1. 现在可以在浏览器中输入你的域名，看看是否可以访问到 Nginx 的欢迎页面
 
-![https://cdn.jsdelivr.net/gh/azurychu/pic_blog/sub/Untitled.png](https://cdn.jsdelivr.net/gh/azurychu/pic_blog/sub/Untitled.png)
+![](https://raw.githubusercontent.com/vveg26/blog_photos/master/proxy/xray_config/xray1/xray1_4.png)
 
 1. 找到VPS目录 vim /etc/nginx/nginx.conf 文件，删除内容，将以下代码复制进去，把里面的域名修改为自己的，把注释中文都删掉，不然会报错
 
-```go
+```html
 user  root;
 worker_processes  1;
 #error_log  /etc/nginx/error.log warn;
@@ -162,11 +162,11 @@ http {
     client_max_body_size 20m;
     #gzip  on;
 server {
-  listen 443 ssl;
-  listen [::]:443 ssl;  验证证书
+  listen 443 ssl;  # 监听443端口
+  listen [::]:443 ssl;  # 验证证书
 
   ssl_certificate       /etc/ssl/private/zzz.vegvegveg.ml.crt;
-  ssl_certificate_key   //etc/ssl/private/zzz.vegvegveg.ml.key;
+  ssl_certificate_key   /etc/ssl/private/zzz.vegvegveg.ml.key;
   ssl_session_timeout 1d;
   ssl_session_cache shared:MozSSL:10m;
   ssl_session_tickets off;
@@ -176,7 +176,7 @@ server {
   ssl_ciphers           ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384;
   ssl_prefer_server_ciphers off;
 
-  server_name           zzz.vegvegveg.ml;
+  server_name           zzz.vegvegveg.ml; #当监听到xxxx.ml:443/ray时，转发到下面proxy_pass里
   location /ray {  # 与 V2Ray 配置中的 path 保持一致
     if ($http_upgrade != "websocket") { 
         return 404;  # WebSocket协商失败时返回404
@@ -192,7 +192,6 @@ server {
     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
   }
 }}
-
 ```
 
 1. 设置 Nginx 开机启动，并重新启动 Nginx
@@ -248,17 +247,10 @@ echo "Xray Restarted"
 
 ```
 chmod +x /etc/ssl/private/xray-cert-renew.sh
-
 ```
 
 1. 设置自动任务，自动执行脚本
 
 ```
 crontab -e
-```
-
-1. 在里面输入以下代码，意思为每月1日自动申请证书
-
-```
-0 1 1 * *   bash /etc/ssl/private/xray-cert-renew.sh
 ```

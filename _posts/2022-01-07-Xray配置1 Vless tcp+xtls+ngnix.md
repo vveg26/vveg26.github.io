@@ -1,19 +1,18 @@
 ---
 layout:     post
-title:      Xray配置1
-subtitle:   vless+tcp+xtls+nginx
-date:       2021-8-22
+title:      Xray配置1 Vless
+subtitle:   vless+xtls
+date:       2022-1-7
 author:     veg
 header-img: img/home-bg.jpg
 catalog: true
 tags:
-    - Xray
-    - SSL证书
+    - Proxy
 ---
 
-# 手动搭建Xray
+# Xray配置1 Vless
 
-## 服务器域名配置a
+## 服务器域名配置
 
 1. VPS 一台，重置好主流的操作系统
 2. 域名一个，解析到该VPS。
@@ -22,7 +21,7 @@ tags:
 
 这些内容可以去看
 
-[https://www.notion.so/azurychu/x-ui-wordpress-3656db5c88fa44acbf026175a4814fcd](https://www.notion.so/x-ui-wordpress-3656db5c88fa44acbf026175a4814fcd)
+[https://www.notion.so/azurychu/x-ui-wordpress-3656db5c88fa44acbf026175a4814fcd](https://www.notion.so/3656db5c88fa44acbf026175a4814fcd)
 
 ## ssl证书申请
 
@@ -52,7 +51,7 @@ source ~/.bashrc
 .acme.sh/acme.sh --issue -d 你的域名 --standalone -k ec-256
 ```
 
-![https://cdn.jsdelivr.net/gh/azurychu/pic_blog/clash/20210822191639.png](https://cdn.jsdelivr.net/gh/azurychu/pic_blog/clash/20210822191639.png)
+![](https://raw.githubusercontent.com/vveg26/blog_photos/master/proxy/xray_config/xray1/xray1_1.png)
 
 若能看到这些，则代表成功，签发成功！继续下一步
 
@@ -85,12 +84,12 @@ bash <(curl -Ls https://raw.githubusercontent.com/sprov065/x-ui/master/install.s
 
 1. 更改x-ui面板的各项配置（公钥，私钥），让x-ui面板也用上Https协议啦，签上证书
 
-![https://cdn.jsdelivr.net/gh/azurychu/pic_blog/clash/20210822191711.png](https://cdn.jsdelivr.net/gh/azurychu/pic_blog/clash/20210822191711.png)
+![](https://raw.githubusercontent.com/vveg26/blog_photos/master/proxy/xray_config/xray1/xray1_2.png)
 
 1. 更改用户名密码，x-ui面板监听端口，保证其更加安全，这里不做演示
 2. 点击入站列表⇒ 添加一个节点
 
-![https://cdn.jsdelivr.net/gh/azurychu/pic_blog/clash/20210822192202.png](https://cdn.jsdelivr.net/gh/azurychu/pic_blog/clash/20210822192202.png)
+![](https://raw.githubusercontent.com/vveg26/blog_photos/master/proxy/xray_config/xray1/xray1_3.png)
 
  5.导出配置，在客户端自己导入，完工
 
@@ -103,7 +102,7 @@ bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release
 ```
 
 1. 随机生成一个uuid
-2. 安装完毕以后，在VPS目录 /usr/local/etc/xray 找到 config,json 文件，贴入下面的配置文件
+2. 安装完毕以后，在VPS目录 vi /usr/local/etc/xray/config.json 找到 config,json 文件，贴入下面的配置文件（这里主要是用xray监听443端口，看是不是vless协议，然后回落到ngnix走正常服务或者走vless协议翻墙）
 
 ```go
 {
@@ -127,11 +126,11 @@ bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release
                 "decryption": "none", 
                 "fallbacks": [
                     {
-                        "dest": 33222  //默认回落端口
+                        "dest": 33222  //默认回落端口，如果不是vless协议就走这里
                     }, 
                     {
                         "alpn": "h2", 
-                        "dest": 33223  //https回落端口，回落到ngnix
+                        "dest": 33223  //https回落端口，回落到ngnix，如果不是vless协议就走这里
                     }
                 ]
             }, 
@@ -166,16 +165,16 @@ bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release
 ## Nginx配置
 
 1. 安装nginx
-
-   ubuntu或Debian系统
+   
+    ubuntu或Debian系统
 
 ```jsx
 apt install curl tar nginx -y
 ```
 
 1. 启动nginx
-
-   PS：在执行下面命令之前，最好重启一下VPS，以免上述的更新命令没有完成导致 Nginx 无法启动，有的搬瓦工机器需要人工重启——因为我遇见过一次）
+   
+    PS：在执行下面命令之前，最好重启一下VPS，以免上述的更新命令没有完成导致 Nginx 无法启动，有的搬瓦工机器需要人工重启——因为我遇见过一次）
 
 ```jsx
 systemctl start nginx
@@ -183,9 +182,9 @@ systemctl start nginx
 
 1. 现在可以在浏览器中输入你的域名，看看是否可以访问到 Nginx 的欢迎页面
 
-![https://cdn.jsdelivr.net/gh/azurychu/pic_blog/sub/Untitled.png](https://cdn.jsdelivr.net/gh/azurychu/pic_blog/sub/Untitled.png)
+![](https://raw.githubusercontent.com/vveg26/blog_photos/master/proxy/xray_config/xray1/xray1_4.png)
 
-1. 找到VPS目录 etc/nginx/nginx.conf 文件，删除内容，将以下代码复制进去，把里面的域名修改为自己的，主要是把回落到的33222，33223，80端口都转向静态网页
+1. 找到VPS目录 vim /etc/nginx/nginx.conf 文件，删除内容，将以下代码复制进去，把里面的域名修改为自己的，主要是把回落到的33222，33223，80端口都转向静态网页
 
 ```go
 user  root;
@@ -207,7 +206,7 @@ http {
     keepalive_timeout  120;
     client_max_body_size 20m;
     #gzip  on;
-server { //监听33222端口，回落到静态主页
+server { //xray回落到33222端口，监听33222端口，如果有就到静态主页
     listen 127.0.0.1:33222;
     server_name  zzz.vegvegveg.ml;   //你的域名
     root /usr/share/nginx/html;
@@ -257,11 +256,7 @@ systemctl restart nginx
 
 1. 设置证书自动签
 
-```
-vi /etc/ssl/private/xray-cert-renew.sh
-```
-
-1. 将自己的域名填入，这是续签脚本
+2. 将自己的域名填入，这是续签脚本
 
 ```
 #!/bin/bash
@@ -280,7 +275,6 @@ echo "Xray Restarted"
 
 ```
 chmod +x /etc/ssl/private/xray-cert-renew.sh
-
 ```
 
 1. 设置自动任务，自动执行脚本
@@ -294,4 +288,3 @@ crontab -e
 ```
 0 1 1 * *   bash /etc/ssl/private/xray-cert-renew.sh
 ```
-

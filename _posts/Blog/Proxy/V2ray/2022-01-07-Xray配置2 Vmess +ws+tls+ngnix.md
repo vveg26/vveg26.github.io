@@ -7,7 +7,7 @@ author:     veg
 header-img: img/home-bg.jpg
 catalog: true
 tags:
-    - Proxy
+    - Xray
 ---
 
 # Xray配置2 Vmess

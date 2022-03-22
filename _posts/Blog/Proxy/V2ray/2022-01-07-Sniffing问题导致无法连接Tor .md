@@ -7,7 +7,8 @@ author:     veg
 header-img: img/home-bg.jpg
 catalog: true
 tags:
-    - Proxy
+    - Tor
+    - V2ray
 ---
 # Sniffing问题导致无法连接Tor
 

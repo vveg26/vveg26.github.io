@@ -1,16 +1,14 @@
 ---
 layout:     post
-title:      通过TPlink实现外网访问家庭设备
-subtitle:   通过TPlink实现外网访问家庭设备
+title:     TPLink路由器DDNS端口映射
+subtitle:   TPLink路由器DDNS端口映射
 date:       2022-1-31
 author:     veg
 header-img: img/home-bg.jpg
 catalog: true
 tags:
-    - TPlink
-    - 日常
+    - 路由器
 ---
-
 # 通过TPlink实现外网访问家庭设备
 
 关键词：DDNS，公网IP，端口映射

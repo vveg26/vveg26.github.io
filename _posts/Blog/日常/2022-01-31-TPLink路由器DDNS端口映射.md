@@ -49,10 +49,10 @@ IP地址为192.168.1.100的设备开放一个端口,如192.168.1.100:8080
 
 2. TPlink上设置DDNS为一个域名，即将路由器网关IP绑定到域名上
    
-   ![](https://raw.githubusercontent.com/vveg26/blog_photos/master/Da/Tplink20220123212454.png)
+   ![](https://raw.githubusercontent.com/vveg26/ImageHosting/master/Da/Tplink20220123212454.png)
 
 3. TPlink上打开虚拟服务器功能（端口映射）设置所需要的服务器端口与路由器的端口
    
-   ![](https://raw.githubusercontent.com/vveg26/blog_photos/master/Da/Tplink20220123212727.png)
+   ![](https://raw.githubusercontent.com/vveg26/ImageHosting/master/Da/Tplink20220123212727.png)
 
 4. 访问域名：路由器端口号   就可以访问了

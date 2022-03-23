@@ -53,7 +53,7 @@ source ~/.bashrc
 .acme.sh/acme.sh --issue -d 你的域名 --standalone -k ec-256
 ```
 
-![](https://raw.githubusercontent.com/vveg26/blog_photos/master/proxy/xray_config/xray1/xray1_1.png)
+![](https://raw.githubusercontent.com/vveg26/ImageHosting/master/proxy/xray_config/xray1/xray1_1.png)
 
 若能看到这些，则代表成功，签发成功！继续下一步
 
@@ -137,7 +137,7 @@ systemctl start nginx
 
 1. 现在可以在浏览器中输入你的域名，看看是否可以访问到 Nginx 的欢迎页面
 
-![](https://raw.githubusercontent.com/vveg26/blog_photos/master/proxy/xray_config/xray1/xray1_4.png)
+![](https://raw.githubusercontent.com/vveg26/ImageHosting/master/proxy/xray_config/xray1/xray1_4.png)
 
 1. 找到VPS目录 vim /etc/nginx/nginx.conf 文件，删除内容，将以下代码复制进去，把里面的域名修改为自己的，把注释中文都删掉，不然会报错
 

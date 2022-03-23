@@ -29,13 +29,13 @@ tags:
 
     这里使用的是V2RAYN客户端，直接关闭
 
-![](https://raw.githubusercontent.com/vveg26/blog_photos/master/proxy/question/tor/tor_q3.png)
+![](https://raw.githubusercontent.com/vveg26/ImageHosting/master/proxy/question/tor/tor_q3.png)
 
 ### 2.服务端关闭sniffing（因人而异）
 
      2.1  v2-ui面板 直接关闭
 
-![](https://raw.githubusercontent.com/vveg26/blog_photos/master/proxy/question/tor/tor_q1.png)
+![](https://raw.githubusercontent.com/vveg26/ImageHosting/master/proxy/question/tor/tor_q1.png)
 
 2.2 其他
 
@@ -45,6 +45,6 @@ tags:
 
 解决方案（自行在配置文件中修改）
 
-![](https://raw.githubusercontent.com/vveg26/blog_photos/master/proxy/question/tor/tor_q2.png)
+![](https://raw.githubusercontent.com/vveg26/ImageHosting/master/proxy/question/tor/tor_q2.png)
 
 找相应的配置文件修改就可

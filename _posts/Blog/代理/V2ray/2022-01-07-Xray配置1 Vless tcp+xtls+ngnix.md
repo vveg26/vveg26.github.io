@@ -51,7 +51,7 @@ source ~/.bashrc
 .acme.sh/acme.sh --issue -d 你的域名 --standalone -k ec-256
 ```
 
-![](https://raw.githubusercontent.com/vveg26/blog_photos/master/proxy/xray_config/xray1/xray1_1.png)
+![](https://raw.githubusercontent.com/vveg26/ImageHosting/master/proxy/xray_config/xray1/xray1_1.png)
 
 若能看到这些，则代表成功，签发成功！继续下一步
 
@@ -84,12 +84,12 @@ bash <(curl -Ls https://raw.githubusercontent.com/sprov065/x-ui/master/install.s
 
 1. 更改x-ui面板的各项配置（公钥，私钥），让x-ui面板也用上Https协议啦，签上证书
 
-![](https://raw.githubusercontent.com/vveg26/blog_photos/master/proxy/xray_config/xray1/xray1_2.png)
+![](https://raw.githubusercontent.com/vveg26/ImageHosting/master/proxy/xray_config/xray1/xray1_2.png)
 
 1. 更改用户名密码，x-ui面板监听端口，保证其更加安全，这里不做演示
 2. 点击入站列表⇒ 添加一个节点
 
-![](https://raw.githubusercontent.com/vveg26/blog_photos/master/proxy/xray_config/xray1/xray1_3.png)
+![](https://raw.githubusercontent.com/vveg26/ImageHosting/master/proxy/xray_config/xray1/xray1_3.png)
 
  5.导出配置，在客户端自己导入，完工
 
@@ -182,7 +182,7 @@ systemctl start nginx
 
 1. 现在可以在浏览器中输入你的域名，看看是否可以访问到 Nginx 的欢迎页面
 
-![](https://raw.githubusercontent.com/vveg26/blog_photos/master/proxy/xray_config/xray1/xray1_4.png)
+![](https://raw.githubusercontent.com/vveg26/ImageHosting/master/proxy/xray_config/xray1/xray1_4.png)
 
 1. 找到VPS目录 vim /etc/nginx/nginx.conf 文件，删除内容，将以下代码复制进去，把里面的域名修改为自己的，主要是把回落到的33222，33223，80端口都转向静态网页
 

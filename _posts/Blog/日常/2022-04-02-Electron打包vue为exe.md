@@ -1,15 +1,14 @@
 ---
 layout: post
-title: Chrome和Edge开启多线程下载
-subtitle: Chrome和Edge开启多线程下载
+title: Vue打包教程
+subtitle: Vue打包教程
 date: 2022-4-2
 author: veg
 header-img: img/home-bg.jpg
 catalog: true
 tags:
 
-- 浏览器
-- 多线程下载
+- Vue
 
 ---
 
